@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+
+
+{% block msg %}
+
+{% if messages %}
+
+    {% for message in messages %}
+
+
+    {{message}}
+
+    {% endfor %}
+
+
+{% endif %}
+
+{% endblock msg %}
+
+
+
+
+{% block content %}
+<h3 class="container alert alert-info my-3">Hello {{request.user.first_name}}, Your Profile Details!</h3>
+<h6 class="container alert alert-success my-1">Username : {{request.user}}!</h6>
+<h6 class="container alert alert-success my-1">Fisrt Name : {{request.user.first_name}}!</h6>
+<h6 class="container alert alert-success my-1">Last Name : {{request.user.last_name}}!</h6>
+<h6 class="container alert alert-success my-1">Email : {{request.user.email}}!</h6>
+<h6 class="container alert alert-success my-1">PassWord : {{request.user.password}}!</h6>
+<h6 class="container alert alert-success my-1">Is staff : {{request.user.is_staff}}!</h6>
+<h6 class="container alert alert-success my-1">Date of Join : {{request.user.date_joined}}!</h6>
+<h6 class="container alert alert-success my-1">Last Login : {{request.user.date_joined}}!</h6>
+
+{% endblock content %}

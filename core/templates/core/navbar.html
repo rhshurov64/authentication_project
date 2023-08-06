@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand mx-5" href="{% url 'home' %}">Authentication</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ms-5" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active bg-success mx-3 px-5 rounded" aria-current="page" href="{% url 'home' %}">Dashboard</a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active bg-success  px-5 mx-3 rounded" aria-current="page" href="{% url 'profile' %}">Profile</a>
+          </li>
+          {% endif %}
+         
+        </ul>
+        
+        <span class="navbar-text">
+          
+          
+          {% if not request.user.is_authenticated %}
+          <a class="btn btn-success btn-md px-4 mx-2" href="{% url 'login' %}" role="button">Login</a>
+          <a class="btn btn-success btn-md px-4 mx-2" href="{% url 'signup' %}" role="button">Registration</a>
+          {% endif %}
+            
+          {% if request.user.is_authenticated %}
+          <a class="btn btn-success btn-md px-4 mx-2" href="{% url 'changepassword' %}" role="button">Change Password</a>
+          <a class="btn btn-success btn-md px-4 mx-2" href="{% url 'logout' %}" role="button">Logout</a>
+          {% endif %}
+            
+            
+            
+        </span>
+      </div>
+    </div>
+  </nav>
