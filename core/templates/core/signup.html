@@ -7,6 +7,15 @@
     <h2 class ='alert alert-info text-center mt-4'>User Registration</h2>
     <div class="row justify-content-around ">
         <div class="col-4">
+            {% if messages %}
+            
+                {% for message in messages %}
+                    {{message}}
+                    
+                {% endfor %}
+                    
+                    
+            {% endif %}
             <form action=""  class="mt-5 " method="POST">
                 {% csrf_token %}
 
@@ -20,15 +29,7 @@
                 <input type="submit" class="btn btn-primary my-3" value="SignUp">
                 
             </form>
-            {% if messages %}
             
-                {% for message in messages %}
-                {{message}}
-                    
-                {% endfor %}
-                    
-                    
-            {% endif %}
 
 
         </div>
